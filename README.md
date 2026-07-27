@@ -84,3 +84,88 @@ Host discovery is the first step in network reconnaissance. It helps security pr
 - Network Enumeration
 - Reconnaissance
 - Network Mapping
+
+- # 2️⃣ TCP Connect Scan
+
+## 🎯 Objective
+
+Identify open TCP ports on the target system using a full TCP connection scan.
+
+---
+
+## 🖥️ Lab Environment
+
+| Component | Details |
+|-----------|---------|
+| Scanner | Kali Linux |
+| Target | Windows 11 |
+| Tool | Nmap |
+| Scan Type | TCP Connect Scan |
+
+---
+
+## 📌 Command Used
+
+```bash
+nmap -sT 192.168.56.103
+```
+
+---
+
+## 📸 Screenshot
+
+<p align="center">
+  <img src="images/02-tcp-connect-scan.png" width="900">
+</p>
+
+<p align="center">
+<b>Figure 2:</b> TCP Connect Scan performed using Nmap.
+</p>
+
+---
+
+## 📂 Scan Output
+
+The complete scan output is available here:
+
+- [`scans/02-tcp-connect-scan.txt`](scans/02-tcp-connect-scan.txt)
+
+---
+
+## 📊 Scan Analysis
+
+| Field | Value |
+|-------|-------|
+| Target IP | 192.168.56.103 |
+| Scan Type | TCP Connect Scan |
+| Nmap Option | `-sT` |
+| Protocol | TCP |
+
+---
+
+## 🛡️ Security Relevance
+
+TCP Connect Scan is commonly used to:
+
+- Identify open TCP ports
+- Discover running network services
+- Verify exposed services
+- Support vulnerability assessments
+- Establish a baseline before further enumeration
+
+---
+
+## 📚 Key Takeaways
+
+- `-sT` completes the full TCP three-way handshake.
+- It does not require raw socket privileges.
+- Open ports often indicate services available on the target host.
+
+---
+
+## 💡 Skills Demonstrated
+
+- TCP Port Scanning
+- Service Discovery
+- Network Enumeration
+- Reconnaissance
