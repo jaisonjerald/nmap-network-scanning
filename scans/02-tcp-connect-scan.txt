@@ -1,0 +1,8 @@
+# Nmap 7.99 scan initiated Mon Jul 27 23:18:10 2026 as: /usr/lib/nmap/nmap --privileged -sT -oN /home/angel/nmap-network-scanning/scans/02-tcp-connect-scan.txt 192.168.56.103
+Nmap scan report for 192.168.56.103
+Host is up (0.00085s latency).
+All 1000 scanned ports on 192.168.56.103 are in ignored states.
+Not shown: 1000 filtered tcp ports (no-response)
+MAC Address: 08:00:27:CD:AC:95 (Oracle VirtualBox virtual NIC)
+
+# Nmap done at Mon Jul 27 23:18:32 2026 -- 1 IP address (1 host up) scanned in 21.92 seconds
