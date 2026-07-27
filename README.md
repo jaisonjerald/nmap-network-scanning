@@ -139,19 +139,29 @@ The complete scan output is available here:
 | Target IP | 192.168.56.103 |
 | Scan Type | TCP Connect Scan |
 | Nmap Option | `-sT` |
-| Protocol | TCP |
+| Result | All 1000 TCP ports filtered |
+| Host Status | Host is up |
+
+### Observations
+
+The scan completed successfully, but all 1000 default TCP ports were reported as **filtered**.
+
+This indicates that the Windows host is reachable but is not responding to connection attempts on the scanned ports.
+
+The most likely cause is the Windows Defender Firewall blocking unsolicited inbound TCP connections.
 
 ---
 
 ## 🛡️ Security Relevance
 
-TCP Connect Scan is commonly used to:
+A TCP Connect Scan is commonly used to:
 
-- Identify open TCP ports
-- Discover running network services
-- Verify exposed services
-- Support vulnerability assessments
-- Establish a baseline before further enumeration
+- Discover open TCP services
+- Identify exposed applications
+- Verify firewall behavior
+- Assess network exposure
+
+In this lab, the Windows firewall prevented the scanner from identifying open ports, demonstrating how host-based firewalls reduce network visibility.
 
 ---
 
