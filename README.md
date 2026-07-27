@@ -1,25 +1,95 @@
-# nmap-network-scanning
-Practical Nmap network scanning and enumeration in a Windows 11 lab environment.
-# 1️⃣ Host Discovery
+<p align="center">
+  <img src="images/banner.png" alt="Nmap Network Scanning Banner" width="100%">
+</p>
 
-## 🎯 Objective
+<h1 align="center">🌐 Nmap Network Scanning</h1>
 
-Identify active hosts on the local network using Nmap's host discovery feature.
+<p align="center">
+Practical Network Discovery, Service Enumeration, and Security Assessment using Nmap
+</p>
+
+<p align="center">
+
+![Platform](https://img.shields.io/badge/Platform-Kali%20Linux-blue)
+![Target](https://img.shields.io/badge/Target-Windows%2011-blueviolet)
+![Tool](https://img.shields.io/badge/Tool-Nmap-orange)
+![Virtualization](https://img.shields.io/badge/VirtualBox-Lab-green)
+![License](https://img.shields.io/badge/License-MIT-brightgreen)
+
+</p>
 
 ---
 
-## 🖥️ Lab Environment
+# 📖 Overview
+
+This repository demonstrates practical **network reconnaissance and service enumeration** using **Nmap** in a virtual lab environment.
+
+The project covers essential Nmap scan techniques used by penetration testers, network administrators, and Security Operations Center (SOC) analysts to identify live hosts, discover open ports, enumerate services, detect operating systems, and perform basic security assessments.
+
+---
+
+# 🎯 Objectives
+
+- Discover active hosts on a network
+- Identify open TCP and UDP ports
+- Detect running services and versions
+- Identify the target operating system
+- Perform advanced service enumeration
+- Demonstrate the use of Nmap NSE scripts
+- Document each scan with screenshots and analysis
+
+---
+
+# 🖥️ Lab Environment
 
 | Component | Details |
 |-----------|---------|
 | Operating System | Kali Linux |
-| Target | Windows 11 |
-| Tool | Nmap |
-| Network | VirtualBox Host-Only Adapter |
+| Target Machine | Windows 11 |
+| Virtualization | Oracle VirtualBox |
+| Tool | Nmap 7.99 |
+| Network | Host-Only Adapter |
 
 ---
 
-## 📌 Command Used
+# 📂 Repository Structure
+
+```text
+nmap-network-scanning/
+│
+├── README.md
+├── LICENSE
+├── images/
+├── scans/
+└── reports/
+```
+
+---
+
+# 📑 Scan Summary
+
+| Scan | Status |
+|------|--------|
+| Host Discovery (-sn) | ✅ |
+| TCP Connect Scan (-sT) | ✅ |
+| Version Detection (-sV) | ✅ |
+| SYN Scan (-sS) | ✅ |
+| OS Detection (-O) | ✅ |
+| Aggressive Scan (-A) | ✅ |
+| NSE Default Scripts (-sC) | ✅ |
+| UDP Scan (-sU) | ✅ |
+
+---
+
+# 1️⃣ Host Discovery (-sn)
+
+## 🎯 Objective
+
+Identify active hosts on the local network without scanning ports.
+
+---
+
+## Command
 
 ```bash
 nmap -sn 192.168.56.103
@@ -27,84 +97,58 @@ nmap -sn 192.168.56.103
 
 ---
 
-## 📸 Screenshot
+## Screenshot
 
 <p align="center">
-  <img src="images/01-host-discovery.png" width="900">
+<img src="images/01-host-discovery.png" width="900">
 </p>
 
 <p align="center">
-<b>Figure 1:</b> Host discovery using an Nmap Ping Scan.
+<b>Figure 1:</b> Host Discovery using Nmap Ping Scan.
 </p>
 
 ---
 
-## 📂 Scan Output
-
-The complete scan output is available here:
+## Scan Output
 
 - [`scans/01-host-discovery.txt`](scans/01-host-discovery.txt)
 
 ---
 
-## 📊 Packet Analysis
+## Analysis
 
-| Field | Value |
-|-------|-------|
-| Scanner | Kali Linux |
-| Target | Windows 11 |
-| Target IP | 192.168.56.103 |
-| Scan Type | Host Discovery |
-| Nmap Option | `-sn` |
+The scan successfully detected the Windows 11 target host as online.
+
+Nmap confirmed:
+
+- Host is reachable
+- Very low network latency
+- VirtualBox MAC address identified
+
+Since the `-sn` option disables port scanning, only host discovery was performed.
 
 ---
 
-## 🛡️ Security Relevance
+## Security Relevance
 
-Host discovery is the first step in network reconnaissance. It helps security professionals:
+Host discovery is commonly used during reconnaissance to:
 
-- Identify active devices
+- Identify live systems
 - Verify network connectivity
-- Build an inventory of reachable hosts
-- Prepare for service enumeration and vulnerability assessment
+- Build a network inventory
+- Prepare for service enumeration
 
 ---
 
-## 📚 Key Takeaways
-
-- `-sn` performs host discovery without scanning ports.
-- It is useful for quickly identifying live systems.
-- Host discovery is commonly performed before more detailed scans.
-
----
-
-## 💡 Skills Demonstrated
-
-- Nmap Host Discovery
-- Network Enumeration
-- Reconnaissance
-- Network Mapping
-
-- # 2️⃣ TCP Connect Scan
+# 2️⃣ TCP Connect Scan (-sT)
 
 ## 🎯 Objective
 
-Identify open TCP ports on the target system using a full TCP connection scan.
+Identify open TCP ports using a complete TCP three-way handshake.
 
 ---
 
-## 🖥️ Lab Environment
-
-| Component | Details |
-|-----------|---------|
-| Scanner | Kali Linux |
-| Target | Windows 11 |
-| Tool | Nmap |
-| Scan Type | TCP Connect Scan |
-
----
-
-## 📌 Command Used
+## Command
 
 ```bash
 nmap -sT 192.168.56.103
@@ -112,79 +156,57 @@ nmap -sT 192.168.56.103
 
 ---
 
-## 📸 Screenshot
+## Screenshot
 
 <p align="center">
-  <img src="images/02-tcp-connect-scan.png" width="900">
+<img src="images/02-tcp-connect-scan.png" width="900">
 </p>
 
 <p align="center">
-<b>Figure 2:</b> TCP Connect Scan performed using Nmap.
+<b>Figure 2:</b> TCP Connect Scan identifying the HTTP service.
 </p>
 
 ---
 
-## 📂 Scan Output
-
-The complete scan output is available here:
+## Scan Output
 
 - [`scans/02-tcp-connect-scan.txt`](scans/02-tcp-connect-scan.txt)
 
 ---
 
-## 📊 Scan Analysis
+## Analysis
 
-| Field | Value |
-|-------|-------|
-| Target IP | 192.168.56.103 |
-| Open Port | 80 |
+The TCP Connect Scan successfully identified:
+
+| Item | Result |
+|------|--------|
+| Open Port | 80/tcp |
 | Service | HTTP |
-| Scan Type | TCP Connect Scan (`-sT`) |
 
-### Observations
-
-The TCP Connect Scan successfully identified **TCP port 80** as **open**, indicating that the target Windows system is running an HTTP service.
-
-The scan completed a full TCP three-way handshake to verify that the port was accepting connections.
+Nmap completed the full TCP three-way handshake before confirming the port as open.
 
 ---
 
-## 🛡️ Security Relevance
+## Security Relevance
 
-TCP Connect Scans help security professionals:
+TCP Connect Scans are commonly used to:
 
-- Identify exposed services
-- Discover open ports
-- Verify firewall configurations
-- Prepare for service enumeration and vulnerability assessments
-
-In this lab, Nmap successfully identified an HTTP service listening on TCP port 80, demonstrating how open ports can reveal available network services.
+- Discover exposed services
+- Identify accessible ports
+- Verify firewall behavior
+- Support vulnerability assessments
 
 ---
 
-## 📚 Key Takeaways
-
-- `-sT` completes the full TCP three-way handshake.
-- It does not require raw socket privileges.
-- Open ports often indicate services available on the target host.
-
----
-
-## 💡 Skills Demonstrated
-
-- TCP Port Scanning
-- Service Discovery
-- Network Enumeration
-- Reconnaissance
-# 3️⃣ Version Detection
+# 3️⃣ Service Version Detection (-sV)
 
 ## 🎯 Objective
 
-Identify the services running on open ports and determine their versions using Nmap service detection.
+Identify the software and version running on open ports.
 
 ---
 
-## 📌 Command Used
+## Command
 
 ```bash
 nmap -sV 192.168.56.103
@@ -192,10 +214,10 @@ nmap -sV 192.168.56.103
 
 ---
 
-## 📸 Screenshot
+## Screenshot
 
 <p align="center">
-  <img src="images/03-version-detection.png" width="900">
+<img src="images/03-version-detection.png" width="900">
 </p>
 
 <p align="center">
@@ -204,48 +226,37 @@ nmap -sV 192.168.56.103
 
 ---
 
-## 📂 Scan Output
+## Scan Output
 
 - [`scans/03-version-detection.txt`](scans/03-version-detection.txt)
 
 ---
 
-## 📊 Analysis
+## Analysis
 
-| Field | Value |
-|-------|-------|
-| Target IP | 192.168.56.103 |
-| Scan Type | Service Version Detection |
-| Nmap Option | `-sV` |
+Nmap successfully identified:
 
-### Observations
+| Port | Service | Version |
+|------|---------|----------|
+| 80/tcp | HTTP | Microsoft IIS httpd 10.0 |
 
-Nmap probed the open ports to identify the services running on them. Service version detection helps determine the software and, when available, its version information.
+Additional information obtained:
+
+- Operating System Family
+- Common Platform Enumeration (CPE)
+- Service Fingerprinting
 
 ---
 
-## 🛡️ Security Relevance
+## Security Relevance
 
-Service version detection is valuable because it helps analysts:
+Version detection helps security professionals:
 
-- Identify software running on a host
-- Detect outdated or vulnerable services
+- Identify outdated software
+- Detect vulnerable services
 - Support vulnerability assessments
-- Prioritize remediation efforts
+- Prioritize remediation activities
 
 ---
 
-## 📚 Key Takeaways
-
-- `-sV` performs service detection on open ports.
-- It provides additional information beyond whether a port is simply open or closed.
-- Accurate service identification supports better security analysis.
-
----
-
-## 💡 Skills Demonstrated
-
-- Service Enumeration
-- Version Detection
-- Network Reconnaissance
-- Nmap Analysis
+**➡️ End of Part 1**
