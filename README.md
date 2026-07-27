@@ -137,31 +137,28 @@ The complete scan output is available here:
 | Field | Value |
 |-------|-------|
 | Target IP | 192.168.56.103 |
-| Scan Type | TCP Connect Scan |
-| Nmap Option | `-sT` |
-| Result | All 1000 TCP ports filtered |
-| Host Status | Host is up |
+| Open Port | 80 |
+| Service | HTTP |
+| Scan Type | TCP Connect Scan (`-sT`) |
 
 ### Observations
 
-The scan completed successfully, but all 1000 default TCP ports were reported as **filtered**.
+The TCP Connect Scan successfully identified **TCP port 80** as **open**, indicating that the target Windows system is running an HTTP service.
 
-This indicates that the Windows host is reachable but is not responding to connection attempts on the scanned ports.
-
-The most likely cause is the Windows Defender Firewall blocking unsolicited inbound TCP connections.
+The scan completed a full TCP three-way handshake to verify that the port was accepting connections.
 
 ---
 
 ## 🛡️ Security Relevance
 
-A TCP Connect Scan is commonly used to:
+TCP Connect Scans help security professionals:
 
-- Discover open TCP services
-- Identify exposed applications
-- Verify firewall behavior
-- Assess network exposure
+- Identify exposed services
+- Discover open ports
+- Verify firewall configurations
+- Prepare for service enumeration and vulnerability assessments
 
-In this lab, the Windows firewall prevented the scanner from identifying open ports, demonstrating how host-based firewalls reduce network visibility.
+In this lab, Nmap successfully identified an HTTP service listening on TCP port 80, demonstrating how open ports can reveal available network services.
 
 ---
 
