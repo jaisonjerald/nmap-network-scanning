@@ -176,3 +176,76 @@ In this lab, Nmap successfully identified an HTTP service listening on TCP port 
 - Service Discovery
 - Network Enumeration
 - Reconnaissance
+# 3️⃣ Version Detection
+
+## 🎯 Objective
+
+Identify the services running on open ports and determine their versions using Nmap service detection.
+
+---
+
+## 📌 Command Used
+
+```bash
+nmap -sV 192.168.56.103
+```
+
+---
+
+## 📸 Screenshot
+
+<p align="center">
+  <img src="images/03-version-detection.png" width="900">
+</p>
+
+<p align="center">
+<b>Figure 3:</b> Service version detection using Nmap.
+</p>
+
+---
+
+## 📂 Scan Output
+
+- [`scans/03-version-detection.txt`](scans/03-version-detection.txt)
+
+---
+
+## 📊 Analysis
+
+| Field | Value |
+|-------|-------|
+| Target IP | 192.168.56.103 |
+| Scan Type | Service Version Detection |
+| Nmap Option | `-sV` |
+
+### Observations
+
+Nmap probed the open ports to identify the services running on them. Service version detection helps determine the software and, when available, its version information.
+
+---
+
+## 🛡️ Security Relevance
+
+Service version detection is valuable because it helps analysts:
+
+- Identify software running on a host
+- Detect outdated or vulnerable services
+- Support vulnerability assessments
+- Prioritize remediation efforts
+
+---
+
+## 📚 Key Takeaways
+
+- `-sV` performs service detection on open ports.
+- It provides additional information beyond whether a port is simply open or closed.
+- Accurate service identification supports better security analysis.
+
+---
+
+## 💡 Skills Demonstrated
+
+- Service Enumeration
+- Version Detection
+- Network Reconnaissance
+- Nmap Analysis
